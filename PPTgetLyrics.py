@@ -83,18 +83,31 @@ finally:
 songDataList = []
 songDataList = get_song_datas(prs.slides, song_id)
 print(tuple(songDataList))
+LASTSONGID += 1
 
 
-# updateDatas
+# addDatas
 try:
     # 데이터베이스에 연결
     conn = sqlite3.connect(r"databases\\songData.db")
 
     # 커서 생성
     cur = conn.cursor()
+
+    # 가사 Data 저장
     insert_sql = "INSERT INTO Main (RecordID, SongID, SlideNum, Signs, Line) VALUES (?, ?, ?, ?, ?);"
     cur.executemany(insert_sql, tuple(songDataList))
-    cur.execute("UPDATE INIT SET LastSongID = ?", (int(song_id),))
+
+    # SongIDData Update
+    song_id = LASTSONGID
+    song_name = input("song_name을 입력하십시오: ")
+    insert_sql = "INSERT INTO SongID (SongID, Name, [Modified Date], [Made Date]) VALUES (?, ?, datetime('now'), datetime('now'));"
+    cur.execute(insert_sql, (LASTSONGID, song_name))
+
+    # LastSongID update
+    
+    print(f"Song_ID update: updated to {LASTSONGID}!")
+    cur.execute("UPDATE INIT SET LastSongID = ?", (int(LASTSONGID),))
     conn.commit()
 
 finally:
