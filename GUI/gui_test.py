@@ -15,7 +15,7 @@ import tkinter.ttk as ttk
 # sys.stdout = open('log.txt', 'a')
 
 
-RootName = "AutoSlide"
+RootName = "AutoPPT"
 root = Tk()
 root.title(RootName)
 
