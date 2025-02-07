@@ -20,11 +20,6 @@ mainTab.pack(expand = 1, fill ="both")
 
 
 ##########Tab1##########
-# t1_frame1 = Frame(tab1, width=300, height=370, background="#9E9E9E")
-# t1_frame2 = Frame(tab1, width=660, height=370, background="#707070")
-# t1_frame3 = Frame(tab1, width=960, height=250, background="#B5B5B5")
-# t1_frame4 = Frame(tab1, width=960, height=80, background="red")
-
 t1_frame1 = Frame(tab1, width=300, height=370)
 t1_frame2 = Frame(tab1, width=660, height=370)
 t1_frame3 = Frame(tab1, width=960, height=290)
