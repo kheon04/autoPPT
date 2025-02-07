@@ -83,7 +83,7 @@ class SortableTable:
 
     def populate_table(self, data):
         # 기존 데이터 삭제
-        for row in self.tree.get_children():
+        for row in self.tree.get_children():    
             self.tree.delete(row)
 
         # 정렬된 데이터 삽입
